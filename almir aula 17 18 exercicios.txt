@@ -51,9 +51,3 @@ mov ax,0
 ↑dec dh
 ↑jnz
 
-
-*4-Faça um programa para multiplicar dois valores bytes
-usando somas e deslocamentos*
-
-
-
