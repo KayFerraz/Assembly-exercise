@@ -1,0 +1,59 @@
+AULA 17,18 EXERCICIOS 
+*1-Faça um programa que multiplique por 4, todos os
+valores bytes entre as posições 200 e 300 do segmento de
+dados atual
+obs1: suponha que todos os valores são menores que 64 (decimal),
+assim, após a multiplicação, ainda caberão em um byte
+obs2: use deslocamentos para fazer a multiplicação
+obs3: quando é o segmento de dados atual, não precisa carregar ds e
+es*
+mov dh,4
+mov cx,101
+mov si,200
+↱mov al,[si]
+↑mul dh 
+↑mov [si],al
+↑inc si
+↑loop
+
+
+
+*2-Faça um programa para calcular a média aritmética de
+200 valores bytes, contidos a partir do endereço 500 do
+segmento de dados B000.
+obs1: a soma deve ser uma word, para caber o resultado
+obs2: para ir somando bytes à uma word, some o byte ao byte menos
+significativo da word e some o vai-um ao byte mais significativo*s
+
+mov cx,200
+mov si,500
+mov ax,b800
+mov ds,ax
+mov ax,0 //soma 0
+↱add al,[si]
+↑add ah,0
+↑inc si
+↑loop
+
+
+
+*3-Faça um programa para multiplicar dois valores bytes
+usando somas sucessivas
+
+ex. para multiplicar 7 * 11, basta somar 11 sete vezes
+ou somar 7, onze vezes*
+
+mov dh,7 
+mov dl,11
+mov ax,0
+↱add al,dl
+↑add ah,0
+↑dec dh
+↑jnz
+
+
+*4-Faça um programa para multiplicar dois valores bytes
+usando somas e deslocamentos*
+
+
+
